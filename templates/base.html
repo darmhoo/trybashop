@@ -1,0 +1,13 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'polls/css/style.css' %}">
+<body>
+<h1>My page</h1>
+<p>Welcome to my page</p>
+<ul>
+    {% for list in list_of_users %}
+        <li>{{ list.first_name }} {{ list.last_name }}</li>
+    {% endfor %}
+</ul>
+
+</body>
+</html>
