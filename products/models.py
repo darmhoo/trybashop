@@ -8,6 +8,12 @@ class ProductCategory(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name_plural = "product Categories"
+
 
 class Product(models.Model):
     name = models.CharField(verbose_name='Product name', max_length=25)
@@ -18,6 +24,10 @@ class Product(models.Model):
     created_by = models.ForeignKey(UserProfile, on_delete=models.CASCADE, verbose_name='creator')
     price = models.FloatField(verbose_name='product price', help_text='You should fix the price here');
     status = models.BooleanField()
+
+    def __str__(self):
+        return self.name
+
 
 
 
