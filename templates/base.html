@@ -3,11 +3,14 @@
 <body>
 <h1>My page</h1>
 <p>Welcome to my page</p>
+{% if list_of_users %}
 <ul>
     {% for list in list_of_users %}
         <li>{{ list.first_name }} {{ list.last_name }}</li>
     {% endfor %}
 </ul>
+{% else %}
+<p>No list added yet</p>
+{% endif %}
 
 </body>
-</html>
