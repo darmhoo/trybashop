@@ -37,11 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'polls.apps.PollsConfig',
     'products.apps.ProductsConfig',
+    'bootstrap3'
 ]
 
 MIDDLEWARE = [
+    'djdev_panel.middleware.DebugMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -78,12 +79,12 @@ WSGI_APPLICATION = 'Trybashop.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql' ,
+        'ENGINE': 'django.db.backends.postgresql' ,
         'NAME': 'trybashop',
-        'USER': 'trybashop',
-        'PASSWORD': 'Laraminikan2@',
+        'USER': 'darmhoo',
+        'PASSWORD': 'laraminikan2',
         'OPTIONS': {
-            'autocommit': True,
+
         },
 
     }

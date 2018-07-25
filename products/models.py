@@ -1,5 +1,5 @@
 from django.db import models
-from polls.models import UserProfile
+from django.urls import reverse
 
 
 class ProductCategory(models.Model):
@@ -21,12 +21,16 @@ class Product(models.Model):
     category = models.ForeignKey(ProductCategory, on_delete=models.CASCADE, verbose_name='Category')
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    created_by = models.ForeignKey(UserProfile, on_delete=models.CASCADE, verbose_name='creator')
+
     price = models.FloatField(verbose_name='product price', help_text='You should fix the price here');
     status = models.BooleanField()
+    image = models.FileField(verbose_name='product image', upload_to='img/%Y/%m/%d/', default='./static/img/dami2.jpg')
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('home', kwargs={'pk': self.pk})
 
 
 

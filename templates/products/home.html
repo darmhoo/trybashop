@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+
+
+{% block title %}Home {% endblock %}
+
+{% block content %}
+    <div class="page-header"></div>
+    <h1>Product listing</h1>
+
+    <ul>
+    {% for item in products %}
+    <li>
+    <div class=""><h2> {{ item.name }}</h2></div>
+    <div><p>{{ item.description }}</p></div>
+    <div><img src="{{ item.image }}"></div>
+    <br></li>
+        {% empty %}
+        <li> No product yet</li>
+    {% endfor %}
+    </ul>
+{% endblock %}
